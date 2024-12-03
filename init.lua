@@ -15,6 +15,18 @@ vim.opt.smartcase = true
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
+-- Enable persistent undo
+vim.opt.undofile = true
+
+-- Set the directory for undo files
+local undodir = vim.fn.stdpath("config") .. "/undo"
+vim.opt.undodir = undodir
+
+-- Ensure the undo directory exists
+if vim.fn.empty(vim.fn.glob(undodir)) > 0 then
+	vim.fn.mkdir(undodir, "p")
+end
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
