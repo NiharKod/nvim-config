@@ -46,6 +46,10 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(require("plugins"))
 
 -- Load plugins
+require("nvim-web-devicons").setup({
+	-- Optional: Customize icons if desired
+	default = true, -- Use default icons
+})
 
 --Sitter
 local builtin = require("telescope.builtin")
