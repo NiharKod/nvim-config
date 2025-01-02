@@ -12,6 +12,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.clipboard = "unnamedplus"
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 
@@ -26,6 +27,22 @@ vim.opt.undodir = undodir
 if vim.fn.empty(vim.fn.glob(undodir)) > 0 then
 	vim.fn.mkdir(undodir, "p")
 end
+
+-- Terminal config
+vim.api.nvim_create_autocmd("TermOpen", {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+	end,
+})
+
+-- Keymap Configuration
+vim.keymap.set("n", "<leader>t", function()
+	vim.cmd("botright 10split")
+	vim.cmd("terminal")
+	vim.cmd("startinsert")
+end, { noremap = true, silent = true })
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
