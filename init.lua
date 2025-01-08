@@ -178,7 +178,7 @@ end, { desc = "Format Buffer" })
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = "everforest",
+		theme = "nord",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = {
@@ -215,13 +215,6 @@ require("lualine").setup({
 	winbar = {},
 	inactive_winbar = {},
 	extensions = {},
-})
-
-vim.diagnostic.config({
-	virtual_text = true, -- Disable inline warnings
-	signs = true, -- Disable the diagnostic signs (e.g., the exclamation mark in the gutter)
-	update_in_insert = true, -- Disable diagnostics while typing in insert mode
-	underline = true, -- Disable underlining errors or warnings
 })
 
 vim.cmd("highlight Normal guibg=NONE ctermbg=NONE") -- Makes the background transparent
