@@ -218,3 +218,9 @@ require("lualine").setup({
 })
 
 vim.cmd("highlight Normal guibg=NONE ctermbg=NONE") -- Makes the background transparent
+
+-- Go to the next tab
+vim.keymap.set("n", "<C-l>", ":tabnext<CR>", { noremap = true, silent = true })
+
+-- Go to the previous tab
+vim.keymap.set("n", "<C-h>", ":tabprevious<CR>", { noremap = true, silent = true })
